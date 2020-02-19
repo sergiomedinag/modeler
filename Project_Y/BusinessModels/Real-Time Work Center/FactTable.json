@@ -1,0 +1,144 @@
+{
+  "logicalTable": {
+    "version": 1,
+    "name": "FactTable",
+    "description": "D5  Sales Rep description.",
+    "tags": [
+      "Oracle"
+    ],
+    "type": "FACT",
+    "logicalColumns": [
+      {
+        "name": "Units_1",
+        "description": "Number of distin",
+        "dataType": "INT",
+        "sortBy": "Units",
+        "descriptorColumn": "Units",
+        "writeable": false,
+        "logicalColumnSource": {
+          "derivedFrom": "PHYSICAL_COLUMNS",
+          "physicalMappings": [
+            {
+              "logicalTableSource": "LTS1",
+              "physicalExpression": {
+                "expressionTemplate": "%1",
+                "expressionObjects": ["physicalColumn:A.B.C"]
+              }
+            },
+            {
+              "logicalTableSource": "LTS2",
+              "physicalExpression": {
+                "expressionTemplate": "%1",
+                "expressionObjects": ["physicalColumn:A.B.C"]
+              }
+            }
+          ]
+        },
+        "aggregation": {
+          "rule": "BASED_ON_DIMENSION",
+          "dimensionBasedRules": [
+            {
+              "dimension": "logicalTable:ProjectX.BM1.Table1",
+              "rule": "EXPRESSION",
+              "aggregateExpression": {
+                "expressionTemplate": "IF…ELSE…SUM(%1+%2)",
+                "expressionObjects": [
+                  "Revenue",
+                  "Units"
+                ]
+              }
+            },
+            {
+              "dimension": "OTHER",
+              "rule": "SUM"
+            }
+          ],
+          "aggregateByLevels": [
+            "logicalLevel:ProjectX.A.B.Level1",
+            "logicalLevel:ProjectX.A.C.Level2"
+          ]
+        },
+        "dataFilters": [
+          {
+            "accessor": "role:AUTHENTICATED_USER",
+            "filter": {
+              "expressionTemplate": "department = %1",
+              "expressionObjects": [
+                "variable:ProjectX.INV_ORG_LIST.ORA_EBS_OLTP_USER"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Units",
+        "description": "Number of distin",
+        "dataType": "UNKNOWN",
+        "writeable": true,
+        "logicalColumnSource": {
+          "derivedFrom": "LOGICAL_COLUMNS",
+          "logicalExpression": {
+            "expressionTemplate": "%1 / %2",
+            "expressionObjects": [
+              "logicalColumn:ProjectX.Sample Sales.F1 Revenue.Revenue",
+              "logicalColumn:ProjectX.Sample Sales.F1 Revenue.Units"
+            ]
+          }
+        }
+      }
+    ],
+    "logicalTableSources": [
+      {
+        "name": "LTS1 Sales Rep",
+        "description": "LTS1 Sales Rep description",
+        "disable": false,
+        "priority": 1,
+        "tableMapping": {
+          "allowUnmappedTables": true,
+          "tables": [
+            "physicalTable:ProjectX.biplatform_datasource.BISAMPLE.D50 Sales Rep",
+            "physicalTable:ProjectX.biplatform_datasource.BISAMPLE.D51 Sales Rep Parent Child",
+            "physicalTable:ProjectX.biplatform_datasource.BISAMPLE.D52 Sales Rep Position"
+          ],
+          "logicalTableSourceJoins": [
+            {
+              "leftTable": "physicalTable:ProjectX.biplatform_datasource.BISAMPLE.D50 Sales Rep_D52 Sales",
+              "rightTable": "physicalTable:ProjectX.biplatform_datasource.BISAMPLE.D50 Sales Rep_D52 Sales2",
+              "joinType": "INNER",
+              "disable": false
+            }
+          ]
+        },
+        "dataGranularity": [
+          "logicalLevel:ProjectX.Sample Sales.H3 Customer.Customer Detail",
+          "logicalLevel:ProjectX.Sample Sales.H5 Sales Rep.Detail"
+        ],
+        "dataFragmentation": {
+          "expressionTemplate": "DATE '2011-04-30' > %1",
+          "expressionObjects": [
+            "logicalColumn:ProjectX.Sample Sales.D1 Time.Beg of Mth Wid"
+          ]
+        },
+        "combineWithOtherFragments": true,
+        "dataFilter": {
+          "expressionTemplate": "%1>10",
+          "expressionObjects": [
+            "PhysicalColumn:ProjectX.biplatform_datasource.BISAMPLE*D50 Sales Rep.EMPLOYEE_KEY"
+          ]
+        },
+        "distinctValues": true
+      }
+    ],
+    "dataFilters": [
+      {
+        "accessor": "role:AUTHENTICATED_USER",
+        "filter": {
+          "expressionTemplate": "department = %1",
+          "expressionObjects": [
+            "variable:ProjectX.INV_ORG_LIST.ORA_EBS_OLTP_USER"
+          ]
+        }
+      }
+    ]
+  }
+}

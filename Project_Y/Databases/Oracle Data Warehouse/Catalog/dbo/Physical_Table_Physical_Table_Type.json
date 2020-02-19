@@ -1,0 +1,107 @@
+{
+  "physicalTable" : {
+    "version" : 1.0,
+    "name" : "Physical_Table_Physical_Table_Type",
+    "description" : "This is a PhysicalTable",
+    "tags" : [ "material", "usage" ],
+    "sourceType" : "TABLE",
+    "columns" : [ {
+      "name" : "ADDRESS1",
+      "description" : "Original Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "40",
+      "nullable" : true
+    }, {
+      "name" : "ADDRESS2",
+      "description" : "Original Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "40",
+      "nullable" : true
+    }, {
+      "name" : "POSTAL_CODE",
+      "description" : "Original Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "12",
+      "nullable" : true
+    }, {
+      "name" : "CITY",
+      "description" : "Original Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "12",
+      "nullable" : true
+    }, {
+      "name" : "STATE_PROVINCE",
+      "description" : "Original Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "40",
+      "nullable" : true
+    }, {
+      "name" : "CTRY_CD3_STATE_NAME",
+      "description" : "Original Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "300",
+      "nullable" : true
+    }, {
+      "name" : "CTRY_CD3_STATE_ABBRV",
+      "description" : "Original Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "10",
+      "nullable" : true
+    }, {
+      "name" : "CTRY_CD3_STATE_NAME_CITY",
+      "description" : "Original Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "300",
+      "nullable" : true
+    }, {
+      "name" : "LONGITUDE",
+      "description" : "Original Physical column description",
+      "dataType" : "DOUBLE",
+      "length" : "53",
+      "nullable" : true
+    }, {
+      "name" : "LATITUDE",
+      "description" : "Original Physical column description",
+      "dataType" : "DOUBLE",
+      "length" : "53",
+      "nullable" : true
+    }, {
+      "name" : "ESTAB_NAME",
+      "description" : "Original Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "240",
+      "nullable" : true
+    }, {
+      "name" : "REGION",
+      "description" : "Original Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "20",
+      "nullable" : true
+    }, {
+      "name" : "ISO_COUNTRY_CODE3",
+      "description" : "Original Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "3",
+      "nullable" : true
+    }, {
+      "name" : "COUNTRY_NAME",
+      "description" : "Original Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "100",
+      "nullable" : true
+    }, {
+      "name" : "STATE_PROVINCE_ABBRV",
+      "description" : "Original Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "4",
+      "nullable" : true
+    } ],
+    "dynamicName" : "variable:ProjectX.InitBlocks.SQLServer70",
+    "sqlHints" : "index(ADDRESS1, ADDRESS_KEY)",
+    "caching" : {
+      "enable" : true,
+      "expiryTime" : 5,
+      "expiryUnit" : "Hours"
+    }
+  }
+}

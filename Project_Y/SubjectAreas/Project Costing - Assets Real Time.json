@@ -1,0 +1,42 @@
+{
+  "subjectArea" : {
+    "name" : "Project Costing - Assets Real Time",
+    "description" : "Analyze capital projects, and identify possible exceptions by comparing expensed and capitalizable costs.",
+    "tags" : [ "Project", "Assets", "private" ],
+    "sourceBusinessModel" : "businessModel:ProjectX.Real-Time Work Center",
+    "implicitFactColumn" : "logicalColumn:ProjectX.Real-Time Work Center.F1 Revenue.Units",
+    "alternateNames" : [ "DavidAliasTest" ],
+    "hideIfTrue" : {
+      "expressionTemplate" : "%1 = %2",
+      "expressionObjects" : [ "variable:ProjectX.INV_ORG_LIST.ORA_EBS_OLTP_USER", "variable:ProjectX.JT_Repository_InitBlock.JT_DY_VAL2" ]
+    },
+    "exportLogicalKeys" : true,
+    "tableOrder" : [ {
+      "name" : "presentationTable:ProjectX.Project Costing - Assets Real Time.Project Indicator Attributes"
+    }, {
+      "name" : "presentationTable:ProjectX.Project Costing - Assets Real Time.Suggested Buyer",
+      "children" : [ {
+        "name" : "presentationTable:ProjectX.Project Costing - Assets Real Time.Table3"
+      } ]
+    } ],
+    "permissions" : [ {
+      "accessor" : "role:AUTHENTICATED_USER",
+      "access" : "WRITE"
+    }, {
+      "accessor" : "role:App1",
+      "access" : "READ"
+    } ],
+    "dataFilters" : [ {
+      "accessor" : "role:AUTHENTICATED_USER",
+      "filter" : {
+        "expressionTemplate" : "department = %1",
+        "expressionObjects" : [ "variable:ProjectX.INV_ORG_LIST.ORA_EBS_OLTP_USER" ]
+      }
+    } ],
+    "localization" : {
+      "localizationKey" : "key1",
+      "nameVariable" : "VALUEOF(NQ_SESSION.CN_Project_Costing_-_Assets_Real_Time_Project_Indicator_Attributes)",
+      "descriptionVariable" : "VALUEOF(NQ_SESSION.CD_Project_Costing)"
+    }
+  }
+}

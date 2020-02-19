@@ -1,0 +1,17 @@
+{
+  "businessModel" : {
+    "version" : 1.0,
+    "name" : "Real-Time Work Center",
+    "description" : "some blah blah description.",
+    "tags" : [ "work", "real time" ],
+    "disable" : false,
+    "joins" : [ {
+      "name" : "logicalJoin1",
+      "leftTable" : "LogicalTableAName",
+      "rightTable" : "LogicalTableBName",
+      "type" : "LEFTOUTER",
+      "cardinality" : "ONETOONE",
+      "drivingTable" : "LogicalTableAName"
+    } ]
+  }
+}

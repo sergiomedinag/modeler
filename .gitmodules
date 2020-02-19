@@ -1,6 +1,0 @@
-[submodule "git_test1"]
-	path = git_test1
-	url = https://github.com/abillah/git_test1
-[submodule "repo_test2"]
-	path = repo_test2
-	url = https://github.com/abillah/repo_test2

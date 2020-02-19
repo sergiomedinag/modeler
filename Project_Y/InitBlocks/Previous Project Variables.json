@@ -1,0 +1,69 @@
+{
+  "initBlock" : {
+    "version" : 1.0,
+    "name" : "Previous Project Variables",
+    "description" : "This is a Session Init Block",
+    "tags" : [ "material", "usage" ],
+    "type" : "SESSION",
+    "connectionPool" : "connectionPool:ProjectX.Oracle Data Warehouse.Oracle Data Warehouse Repository Initblocks Connection Pool",
+    "selectStatements" : [ {
+      "databaseType" : "SQLServer70",
+      "query" : "select max(A.MCAL_PERIOD_NAME),max(A.MCAL_QTR_NAME),max(A.MCAL_YEAR_NAME) from\n(\n  select C.MCAL_PERIOD_NAME as MCAL_PERIOD_NAME,'' as MCAL_QTR_NAME,''    as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_PERIOD_D C\n where C.adjustment_period_flg = 'N' \n and C.W_CURRENT_MCAL_PERIOD_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)\n union all\n -- Query to get previous quarter\n select '' as MCAL_PERIOD_NAME,C.MCAL_PER_NAME_QTR as MCAL_QTR_NAME,'' as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_QTR_D C\n WHERE C.W_CURRENT_MCAL_QTR_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)\n union all\n -- Query to get previous year\n select '' as MCAL_PERIOD_NAME,'' as MCAL_QTR_NAME,C.MCAL_PER_NAME_YEAR as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_YEAR_D C\n WHERE C.W_CURRENT_MCAL_YEAR_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)) As A"
+    }, {
+      "databaseType" : "DB2AS400",
+      "query" : "select max(A.MCAL_PERIOD_NAME),max(A.MCAL_QTR_NAME),max(A.MCAL_YEAR_NAME) from\n(\n  select C.MCAL_PERIOD_NAME as MCAL_PERIOD_NAME,'' as MCAL_QTR_NAME,''    as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_PERIOD_D C\n where C.adjustment_period_flg = 'N' \n and C.W_CURRENT_MCAL_PERIOD_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)\n union all\n -- Query to get previous quarter\n select '' as MCAL_PERIOD_NAME,C.MCAL_PER_NAME_QTR as MCAL_QTR_NAME,'' as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_QTR_D C\n WHERE C.W_CURRENT_MCAL_QTR_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)\n union all\n -- Query to get previous year\n select '' as MCAL_PERIOD_NAME,'' as MCAL_QTR_NAME,C.MCAL_PER_NAME_YEAR as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_YEAR_D C\n WHERE C.W_CURRENT_MCAL_YEAR_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)) As A"
+    }, {
+      "databaseType" : "DB2V7",
+      "query" : "select max(A.MCAL_PERIOD_NAME),max(A.MCAL_QTR_NAME),max(A.MCAL_YEAR_NAME) from\n(\n  select C.MCAL_PERIOD_NAME as MCAL_PERIOD_NAME,'' as MCAL_QTR_NAME,''    as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_PERIOD_D C\n where C.adjustment_period_flg = 'N' \n and C.W_CURRENT_MCAL_PERIOD_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)\n union all\n -- Query to get previous quarter\n select '' as MCAL_PERIOD_NAME,C.MCAL_PER_NAME_QTR as MCAL_QTR_NAME,'' as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_QTR_D C\n WHERE C.W_CURRENT_MCAL_QTR_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)\n union all\n -- Query to get previous year\n select '' as MCAL_PERIOD_NAME,'' as MCAL_QTR_NAME,C.MCAL_PER_NAME_YEAR as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_YEAR_D C\n WHERE C.W_CURRENT_MCAL_YEAR_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)) As A"
+    }, {
+      "databaseType" : "DB2OS390V7",
+      "query" : "select max(A.MCAL_PERIOD_NAME),max(A.MCAL_QTR_NAME),max(A.MCAL_YEAR_NAME) from\n(\n  select C.MCAL_PERIOD_NAME as MCAL_PERIOD_NAME,'' as MCAL_QTR_NAME,''    as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_PERIOD_D C\n where C.adjustment_period_flg = 'N' \n and C.W_CURRENT_MCAL_PERIOD_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)\n union all\n -- Query to get previous quarter\n select '' as MCAL_PERIOD_NAME,C.MCAL_PER_NAME_QTR as MCAL_QTR_NAME,'' as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_QTR_D C\n WHERE C.W_CURRENT_MCAL_QTR_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)\n union all\n -- Query to get previous year\n select '' as MCAL_PERIOD_NAME,'' as MCAL_QTR_NAME,C.MCAL_PER_NAME_YEAR as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_YEAR_D C\n WHERE C.W_CURRENT_MCAL_YEAR_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)) As A"
+    }, {
+      "databaseType" : "DB2V8",
+      "query" : "select max(A.MCAL_PERIOD_NAME),max(A.MCAL_QTR_NAME),max(A.MCAL_YEAR_NAME) from\n(\n  select C.MCAL_PERIOD_NAME as MCAL_PERIOD_NAME,'' as MCAL_QTR_NAME,''    as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_PERIOD_D C\n where C.adjustment_period_flg = 'N' \n and C.W_CURRENT_MCAL_PERIOD_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)\n union all\n -- Query to get previous quarter\n select '' as MCAL_PERIOD_NAME,C.MCAL_PER_NAME_QTR as MCAL_QTR_NAME,'' as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_QTR_D C\n WHERE C.W_CURRENT_MCAL_QTR_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)\n union all\n -- Query to get previous year\n select '' as MCAL_PERIOD_NAME,'' as MCAL_QTR_NAME,C.MCAL_PER_NAME_YEAR as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_YEAR_D C\n WHERE C.W_CURRENT_MCAL_YEAR_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)) As  A"
+    }, {
+      "databaseType" : "TeradataV2R5",
+      "query" : "select max(A.MCAL_PERIOD_NAME),max(A.MCAL_QTR_NAME),max(A.MCAL_YEAR_NAME) from\n(\n  select C.MCAL_PERIOD_NAME as MCAL_PERIOD_NAME,'' as MCAL_QTR_NAME,''    as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_PERIOD_D C\n where C.adjustment_period_flg = 'N' \n and C.W_CURRENT_MCAL_PERIOD_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)\n union all\n -- Query to get previous quarter\n select '' as MCAL_PERIOD_NAME,C.MCAL_PER_NAME_QTR as MCAL_QTR_NAME,'' as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_QTR_D C\n WHERE C.W_CURRENT_MCAL_QTR_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)\n union all\n -- Query to get previous year\n select '' as MCAL_PERIOD_NAME,'' as MCAL_QTR_NAME,C.MCAL_PER_NAME_YEAR as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_YEAR_D C\n WHERE C.W_CURRENT_MCAL_YEAR_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)) As  A"
+    }, {
+      "databaseType" : "TeradataV2R4",
+      "query" : "select max(A.MCAL_PERIOD_NAME),max(A.MCAL_QTR_NAME),max(A.MCAL_YEAR_NAME) from\n(\n  select C.MCAL_PERIOD_NAME as MCAL_PERIOD_NAME,'' as MCAL_QTR_NAME,''    as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_PERIOD_D C\n where C.adjustment_period_flg = 'N' \n and C.W_CURRENT_MCAL_PERIOD_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)\n union all\n -- Query to get previous quarter\n select '' as MCAL_PERIOD_NAME,C.MCAL_PER_NAME_QTR as MCAL_QTR_NAME,'' as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_QTR_D C\n WHERE C.W_CURRENT_MCAL_QTR_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)\n union all\n -- Query to get previous year\n select '' as MCAL_PERIOD_NAME,'' as MCAL_QTR_NAME,C.MCAL_PER_NAME_YEAR as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_YEAR_D C\n WHERE C.W_CURRENT_MCAL_YEAR_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)) As A"
+    }, {
+      "databaseType" : "DB2OS390V8",
+      "query" : "select max(A.MCAL_PERIOD_NAME),max(A.MCAL_QTR_NAME),max(A.MCAL_YEAR_NAME) from\n(\n  select C.MCAL_PERIOD_NAME as MCAL_PERIOD_NAME,'' as MCAL_QTR_NAME,''    as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_PERIOD_D C\n where C.adjustment_period_flg = 'N' \n and C.W_CURRENT_MCAL_PERIOD_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)\n union all\n -- Query to get previous quarter\n select '' as MCAL_PERIOD_NAME,C.MCAL_PER_NAME_QTR as MCAL_QTR_NAME,'' as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_QTR_D C\n WHERE C.W_CURRENT_MCAL_QTR_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)\n union all\n -- Query to get previous year\n select '' as MCAL_PERIOD_NAME,'' as MCAL_QTR_NAME,C.MCAL_PER_NAME_YEAR as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_YEAR_D C\n WHERE C.W_CURRENT_MCAL_YEAR_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)) As  A"
+    }, {
+      "databaseType" : "TeradataV2R6",
+      "query" : "select max(A.MCAL_PERIOD_NAME),max(A.MCAL_QTR_NAME),max(A.MCAL_YEAR_NAME) from\n(\n  select C.MCAL_PERIOD_NAME as MCAL_PERIOD_NAME,'' as MCAL_QTR_NAME,''    as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_PERIOD_D C\n where C.adjustment_period_flg = 'N' \n and C.W_CURRENT_MCAL_PERIOD_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)\n union all\n -- Query to get previous quarter\n select '' as MCAL_PERIOD_NAME,C.MCAL_PER_NAME_QTR as MCAL_QTR_NAME,'' as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_QTR_D C\n WHERE C.W_CURRENT_MCAL_QTR_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)\n union all\n -- Query to get previous year\n select '' as MCAL_PERIOD_NAME,'' as MCAL_QTR_NAME,C.MCAL_PER_NAME_YEAR as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_YEAR_D C\n WHERE C.W_CURRENT_MCAL_YEAR_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)) As A"
+    }, {
+      "databaseType" : "SQLServer2005",
+      "query" : "select max(A.MCAL_PERIOD_NAME),max(A.MCAL_QTR_NAME),max(A.MCAL_YEAR_NAME) from\n(\n  select C.MCAL_PERIOD_NAME as MCAL_PERIOD_NAME,'' as MCAL_QTR_NAME,''    as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_PERIOD_D C\n where C.adjustment_period_flg = 'N' \n and C.W_CURRENT_MCAL_PERIOD_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)\n union all\n -- Query to get previous quarter\n select '' as MCAL_PERIOD_NAME,C.MCAL_PER_NAME_QTR as MCAL_QTR_NAME,'' as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_QTR_D C\n WHERE C.W_CURRENT_MCAL_QTR_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)\n union all\n -- Query to get previous year\n select '' as MCAL_PERIOD_NAME,'' as MCAL_QTR_NAME,C.MCAL_PER_NAME_YEAR as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_YEAR_D C\n WHERE C.W_CURRENT_MCAL_YEAR_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)) As  A"
+    }, {
+      "databaseType" : "DefaultMulDB",
+      "query" : "select max(MCAL_PERIOD_NAME),max(MCAL_QTR_NAME),max(MCAL_YEAR_NAME) from\n(\n  select C.MCAL_PERIOD_NAME as MCAL_PERIOD_NAME,'' as MCAL_QTR_NAME,''    as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_PERIOD_D C\n where C.adjustment_period_flg = 'N' \n and C.W_CURRENT_MCAL_PERIOD_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)\n union all\n -- Query to get previous quarter\n select '' as MCAL_PERIOD_NAME,C.MCAL_PER_NAME_QTR as MCAL_QTR_NAME,'' as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_QTR_D C\n WHERE C.W_CURRENT_MCAL_QTR_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)\n union all\n -- Query to get previous year\n select '' as MCAL_PERIOD_NAME,'' as MCAL_QTR_NAME,C.MCAL_PER_NAME_YEAR as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_YEAR_D C\n WHERE C.W_CURRENT_MCAL_YEAR_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ))"
+    } ],
+    "variables" : [ {
+      "name" : "PREVIOUS_PROJECT_PERIOD",
+      "description" : "Defaults to the previous project period for the calendar associated with the business unit of a user.",
+      "value" : "'11-08'",
+      "enableUsersToSetValue" : false,
+      "securitySensitive" : false
+    }, {
+      "name" : "PREVIOUS_PROJECT_QUARTER",
+      "description" : "Defaults to the previous project quarter for the calendar associated with the business unit of a user.",
+      "value" : "'2008 Q 3'",
+      "enableUsersToSetValue" : true,
+      "securitySensitive" : true
+    }, {
+      "name" : "PREVIOUS_PROEJCT_YEAR",
+      "description" : "Defaults to the previous project year for the calendar associated with the business unit of a user.",
+      "value" : "'2007'",
+      "enableUsersToSetValue" : true,
+      "securitySensitive" : false
+    } ],
+    "dependencies" : [ "initBlock:ProjectX.Mcal Calendar Wid Identification for Project" ],
+    "disable" : false,
+    "queryReturnsVariableNamesAndValues" : false,
+    "allowDeferredExecution" : false,
+    "cacheQueryResult" : false
+    
+  }
+}
