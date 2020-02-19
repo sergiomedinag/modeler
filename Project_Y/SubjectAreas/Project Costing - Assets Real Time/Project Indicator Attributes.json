@@ -1,0 +1,125 @@
+{
+  "presentationTable" : {
+    "name" : "Project Indicator Attributes",
+    "description" : "The processing rules for project capitalization.",
+    "tags" : [ "Presentation Level", "Year" ],
+    "alternateNames" : [ "Year Presentation Level" ],
+    "hideIfTrue" : {
+      "expressionTemplate" : "%1 = %2",
+      "expressionObjects" : [ "variable:ProjectX.INV_ORG_LIST.ORA_EBS_OLTP_USER", "variable:ProjectX.JT_Repository_InitBlock.JT_DY_VAL2" ]
+    },
+    "columns" : [ {
+      "useLogicalName" : false,
+      "name" : "LimitToTransaction Controls Flag",
+      "description" : "Processing rules for project capitalization.",
+      "tags" : [ "Flag" ],
+      "sourceLogicalColumn" : "logicalColumn:ProjectX.Real-Time Work Center.Level-Based Hierarchy Example.Brand",
+      "alternateNames" : [ "ProjIndicatorAlias" ],
+      "hideIfTrue" : {
+        "expressionTemplate" : "%1 = %2",
+        "expressionObjects" : [ "variable:ProjectX.INV_ORG_LIST.ORA_EBS_OLTP_USER", "variable:ProjectX.JT_Repository_InitBlock.JT_DY_VAL2" ]
+      },
+      "permissions" : [ {
+        "accessor" : "role:AUTHENTICATED_USER",
+        "access" : "WRITE"
+      } ],
+      "dataFilters" : [ {
+        "accessor" : "role:AUTHENTICATED_USER",
+        "filter" : {
+          "expressionTemplate" : "department = %1",
+          "expressionObjects" : [ "variable:ProjectX.INV_ORG_LIST.ORA_EBS_OLTP_USER" ]
+        }
+      } ],
+      "localization" : {
+        "localizationKey" : "key1",
+        "nameVariable" : "VALUEOF(NQ_SESSION.CN_Project_Costing_-_Assets_Real_Time_Project_Indicator_Attributes)",
+        "descriptionVariable" : "VALUEOF(NQ_SESSION.CD_Project_Costing)"
+      }
+    } ],
+    "hierarchies" : [ {
+      "name" : "Time",
+      "description" : "this is my level based hierarchy",
+      "tags" : [ "Flag" ],
+      "sourceLogicalTable" : "logicalTable:ProjectX.Core.Date",
+      "alternateNames" : [ "ProjIndicatorAlias" ],
+      "hideIfTrue" : {
+        "expressionTemplate" : "%1 = %2",
+        "expressionObjects" : [ "variable:ProjectX.INV_ORG_LIST.ORA_EBS_OLTP_USER", "variable:ProjectX.JT_Repository_InitBlock.JT_DY_VAL2" ]
+      },
+      "permissions" : [ {
+        "accessor" : "role:AUTHENTICATED_USER",
+        "access" : "WRITE"
+      } ],
+      "dataFilters" : [ {
+        "accessor" : "role:AUTHENTICATED_USER",
+        "filter" : {
+          "expressionTemplate" : "department = %1",
+          "expressionObjects" : [ "variable:ProjectX.INV_ORG_LIST.ORA_EBS_OLTP_USER" ]
+        }
+      } ],
+      "localization" : {
+        "localizationKey" : "key1",
+        "nameVariable" : "VALUEOF(NQ_SESSION.CN_Project_Costing_-_Assets_Real_Time_Project_Indicator_Attributes)",
+        "descriptionVariable" : "VALUEOF(NQ_SESSION.CD_Project_Costing)"
+      },
+      "levels" : [ {
+        "name" : "Year",
+        "description" : "this is a level",
+        "tags" : [ "Flag" ],
+        "sourceLogicalLevel" : "logicalLevel:ProjectX.Core.Date.Year",
+        "displayColumns" : [ "presentationColumn:ProjectX.Sales - CRM Price WaterfallTime.Year" ],
+        "alternateNames" : [ "ProjIndicatorAlias" ],
+        "hideIfTrue" : {
+          "expressionTemplate" : "%1 = %2",
+          "expressionObjects" : [ "variable:ProjectX.INV_ORG_LIST.ORA_EBS_OLTP_USER", "variable:ProjectX.JT_Repository_InitBlock.JT_DY_VAL2" ]
+        },
+        "permissions" : [ {
+          "accessor" : "role:AUTHENTICATED_USER",
+          "access" : "WRITE"
+        } ],
+        "dataFilters" : [ {
+          "accessor" : "role:AUTHENTICATED_USER",
+          "filter" : {
+            "expressionTemplate" : "department = %1",
+            "expressionObjects" : [ "variable:ProjectX.INV_ORG_LIST.ORA_EBS_OLTP_USER" ]
+          }
+        } ],
+        "localization" : {
+          "localizationKey" : "key1",
+          "nameVariable" : "VALUEOF(NQ_SESSION.CN_Project_Costing_-_Assets_Real_Time_Project_Indicator_Attributes)",
+          "descriptionVariable" : "VALUEOF(NQ_SESSION.CD_Project_Costing)"
+        }
+      }, {
+        "name" : "Quarter",
+        "description" : "this is a level",
+        "sourceLogicalLevel" : "logicalLevel:ProjectX.Core.Date.Quarter",
+        "displayColumns" : [ "presentationColumn:ProjectX.Sales - CRM Price WaterfallTime.Quarter" ]
+      } ]
+    } ],
+    "permissions" : [ {
+      "accessor" : "role:AUTHENTICATED_USER",
+      "access" : "WRITE"
+    }, {
+      "accessor" : "role:roleApp1",
+      "access" : "READ"
+    } ],
+    "dataFilters" : [ {
+      "accessor" : "role:AUTHENTICATED_USER",
+      "filter" : {
+        "expressionTemplate" : "department = %1",
+        "expressionObjects" : [ "variable:ProjectX.INV_ORG_LIST.ORA_EBS_OLTP_USER" ]
+      }
+    }, {
+      "accessor" : "user:user1",
+      "filter" : {
+        "expressionTemplate" : "department = %1",
+        "expressionObjects" : [ "variable:ProjectX.INV_ORG_LIST.ORA_EBS_OLTP_USER" ]
+      }
+    } ],
+    "localization" : {
+      "localizationKey" : "key1",
+      "nameVariable" : "VALUEOF(NQ_SESSION.CN_Project_Costing_-_Assets_Real_Time_Project_Indicator_Attributes)",
+      "descriptionVariable" : "VALUEOF(NQ_SESSION.CD_Project_Costing)"
+    }
+  }
+}

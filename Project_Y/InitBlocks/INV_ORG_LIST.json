@@ -1,0 +1,30 @@
+{
+  "initBlock" : {
+    "version" : 1.0,
+    "name" : "INV_ORG_LIST",
+    "description" : "my list of static variables 1",
+    "tags" : [ "material", "usage" ],
+    "type" : "STATIC",
+    "variables" : [ {
+      "name" : "INV_ORG_LIST",
+      "description" : "some desc",
+      "value" : "-999"
+    }, {
+      "name" : "GLOBAL_CURRENCY3",
+      "description" : "some desc",
+      "value" : "'YEN'"
+    }, {
+      "name" : "GLOBAL_CURRENCY2",
+      "description" : "some desc",
+      "value" : "'EUR'"
+    }, {
+      "name" : "GLOBAL_CURRENCY1",
+      "description" : "some desc",
+      "value" : "'USD'"
+    }, {
+      "name" : "ORA_EBS_OLTP_USER",
+      "description" : "some desc",
+      "value" : "TIMESTAMP '2004-01-01 00:00:00'"
+    } ]
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "physicalTable" : {
+    "version" : 1.0,
+    "name" : "Physical_Table_Stored_Procedure",
+    "description" : "This is a PhysicalTable sourced from a stored procedure.",
+    "tags" : [ "material", "usage" ],
+    "sourceType" : "STORED_PROCEDURE",
+    "selectStatements" : [ {
+      "databaseType" : "DEFAULT",
+      "query" : "Sql statement value"
+    }, {
+      "databaseType" : "SQL-SERVER",
+      "query" : "Sql statement value"
+    } ],
+    "columns" : [ {
+      "name" : "ADDRESS1",
+      "description" : "Stored Procedure type Physical column description",
+      "dataType" : "BIT",
+      "nullable" : true  
+    }, {
+      "name" : "ADDRESS2",
+      "description" : "Stored Procedure type Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "40",
+      "nullable" : true 
+    }, {
+      "name" : "POSTAL_CODE",
+      "description" : "Stored Procedure type Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "12",
+      "nullable" : true 
+    }, {
+      "name" : "CITY",
+      "description" : "Stored Procedure type Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "12",
+      "nullable" : true 
+    }, {
+      "name" : "STATE_PROVINCE",
+      "description" : "Stored Procedure type Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "40",
+      "nullable" : true 
+    }, {
+      "name" : "CTRY_CD3_STATE_NAME",
+      "description" : "Stored Procedure type Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "300",
+      "nullable" : true 
+    }, {
+      "name" : "CTRY_CD3_STATE_ABBRV",
+      "description" : "Stored Procedure type Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "10",
+      "nullable" : true 
+    }, {
+      "name" : "CTRY_CD3_STATE_NAME_CITY",
+      "description" : "Stored Procedure type Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "300",
+      "nullable" : true 
+    }, {
+      "name" : "LONGITUDE",
+      "description" : "Stored Procedure type Physical column description",
+      "dataType" : "DOUBLE",
+      "length" : "53",
+      "nullable" : true 
+    }, {
+      "name" : "LATITUDE",
+      "description" : "Stored Procedure type Physical column description",
+      "dataType" : "DOUBLE",
+      "length" : "53",
+      "nullable" : true 
+    }, {
+      "name" : "ESTAB_NAME",
+      "description" : "Stored Procedure type Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "240",
+      "nullable" : true 
+    }, {
+      "name" : "REGION",
+      "description" : "Stored Procedure type Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "20",
+      "nullable" : true 
+    }, {
+      "name" : "ISO_COUNTRY_CODE3",
+      "description" : "Stored Procedure type Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "3",
+      "nullable" : true 
+    }, {
+      "name" : "COUNTRY_NAME",
+      "description" : "Stored Procedure type Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "100",
+      "nullable" : true 
+    }, {
+      "name" : "STATE_PROVINCE_ABBRV",
+      "description" : "Stored Procedure type Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "4",
+      "nullable" : true 
+    } ],
+   "caching" : {
+      "enable" : true,
+      "expiryTime" : 5,
+      "expiryUnit" : "MINUTES"
+    }
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "physicalTable" : {
+    "version" : 1.0,
+    "name" : "Physical_Table_Select_Statement",
+    "description" : "This is a PhysicalTable sourced from a select statement.",
+    "tags" : [ "material", "usage" ],
+    "sourceType" : "SELECT",
+    "selectStatements" : [ {
+      "databaseType" : "DEFAULT",
+      "query" : "Sql statement value"
+    }, {
+      "databaseType" : "SQL-SERVER",
+      "query" : "Sql statement value"
+    } ],
+    "columns" : [ {
+      "name" : "ADDRESS1",
+      "description" : "Original Physical column description",
+      "dataType" : "BINARY",
+      "length" : "250",
+      "nullable" : true
+    }, {
+      "name" : "ADDRESS2",
+      "description" : "Select type PhysicalTable Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "40",
+      "nullable" : true 
+    }, {
+      "name" : "POSTAL_CODE",
+      "description" : "Select type PT Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "12",
+      "nullable" : true
+    }, {
+      "name" : "CITY",
+      "description" : "Select type PT Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "12",
+      "nullable" : true 
+    }, {
+      "name" : "STATE_PROVINCE",
+      "description" : "Select type PT Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "40",
+      "nullable" : true 
+    }, {
+      "name" : "CTRY_CD3_STATE_NAME",
+      "description" : "Select type PT Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "300",
+      "nullable" : true 
+    }, {
+      "name" : "CTRY_CD3_STATE_ABBRV",
+      "description" : "Select type PT Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "10",
+      "nullable" : true 
+    }, {
+      "name" : "CTRY_CD3_STATE_NAME_CITY",
+      "description" : "Select type PT Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "300",
+      "nullable" : true 
+    }, {
+      "name" : "LONGITUDE",
+      "description" : "Select type PT Physical column description",
+      "dataType" : "DOUBLE",
+      "length" : "53",
+      "nullable" : true 
+    }, {
+      "name" : "LATITUDE",
+      "description" : "Select type PT Physical column description",
+      "dataType" : "DOUBLE",
+      "length" : "53",
+      "nullable" : true 
+    }, {
+      "name" : "ESTAB_NAME",
+      "description" : "Select type PT Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "240",
+      "nullable" : true 
+    }, {
+      "name" : "REGION",
+      "description" : "Select type PT Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "20",
+      "nullable" : true 
+    }, {
+      "name" : "ISO_COUNTRY_CODE3",
+      "description" : "Select type PT Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "3",
+      "nullable" : true 
+    }, {
+      "name" : "COUNTRY_NAME",
+      "description" : "Select type PT Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "100",
+      "nullable" : true 
+    }, {
+      "name" : "STATE_PROVINCE_ABBRV",
+      "description" : "Select type PT Physical column description",
+      "dataType" : "VARCHAR",
+      "length" : "4",
+      "nullable" : true
+    } ],
+    "caching" : {
+      "enable" : true,
+      "expiryTime" : 5,
+      "expiryUnit" : "MINUTES"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "schema": {
+    "version": 1.0,
+    "name": "dbo",
+    "description": "This is a schema",
+    "tags": [ "tag1", "tag2" ],
+    "dynamicName": "variable:ProjectX.JT_Repository_InitBlock.JT_DY_VAL2"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "initBlock" : {
+    "version" : 1.0,
+    "name" : "JT_Repository_InitBlock",
+    "description" : "This is a Repository Init Block",
+    "tags" : [ "material", "usage" ],
+    "type" : "GLOBAL",
+    "connectionPool" : "connectionPool:ProjectX.Oracle Data Warehouse.Oracle Data Warehouse Repository Initblocks Connection Pool",
+    "selectStatements" : [ {
+      "databaseType" : "DEFAULT",
+      "query" : "SELECT CALENDAR_DATE, PER_NAME_MONTH, PER_NAME_YEAR FROM BISAMPLE.SAMP_TIME_DAY_D WHERE CALENDAR_DATE = (SELECT MAX(BILL_DAY_DT) FROM BISAMPLE.SAMP_REVENUE_F)"
+    } ],
+    "variables" : [ {
+      "name" : "JT_DY_VAL2",
+      "description" : "aaaaaa",
+      "value" : "DATE '2000-11-11'"
+    } ],
+    "runSchedule" : {
+      "interval" : 8,
+      "intervalUnit" : "HOURS",
+      "startingOn" : "2019-07-04 20:27:25"
+    },
+    "dependencies" : [ "initBlock:ProjectX.Current Periods" ],
+    "disable" : false
+  }
+}
