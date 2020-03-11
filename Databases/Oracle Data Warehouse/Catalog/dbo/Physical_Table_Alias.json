@@ -1,0 +1,16 @@
+{
+  "physicalTableAlias" : {
+    "version" : 1.0,
+    "name" : "Physical_Table_Physical_Table_Type Alias",
+    "description" : "Physical alias of Physical_Table_Physical_Table_Type sample description",
+    "tags" : [ "material", "usage" ],
+    "sourceTable" : "physicalTable:Oracle Data Warehouse.Catalog.dbo.Physical_Table_Physical_Table_Type",
+    "caching" : {
+      "enable" : false,
+      "expiryTime" : 0,
+      "expiryUnit" : "SECONDS"
+    },
+    "dynamicName" : "variable:InitBlocks.DefaultMulDB",
+    "overrideSourceCacheSetting" : false
+  }
+}

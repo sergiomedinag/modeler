@@ -1,23 +1,24 @@
 {
   "presentationTable" : {
+    "version" : 1.0,
     "name" : "Project Indicator Attributes",
     "description" : "The processing rules for project capitalization.",
     "tags" : [ "Presentation Level", "Year" ],
     "alternateNames" : [ "Year Presentation Level" ],
     "hideIfTrue" : {
       "expressionTemplate" : "%1 = %2",
-      "expressionObjects" : [ "variable:ProjectX.INV_ORG_LIST.ORA_EBS_OLTP_USER", "variable:ProjectX.JT_Repository_InitBlock.JT_DY_VAL2" ]
+      "expressionObjects" : [ "variable:INV_ORG_LIST.ORA_EBS_OLTP_USER", "variable:JT_Repository_InitBlock.JT_DY_VAL2" ]
     },
-    "columns" : [ {
+    "presentationColumns" : [ {
       "useLogicalName" : false,
       "name" : "LimitToTransaction Controls Flag",
       "description" : "Processing rules for project capitalization.",
       "tags" : [ "Flag" ],
-      "sourceLogicalColumn" : "logicalColumn:ProjectX.Real-Time Work Center.Level-Based Hierarchy Example.Brand",
+      "sourceLogicalColumn" : "logicalColumn:Real-Time Work Center.Level-Based Hierarchy Example.Brand",
       "alternateNames" : [ "ProjIndicatorAlias" ],
       "hideIfTrue" : {
         "expressionTemplate" : "%1 = %2",
-        "expressionObjects" : [ "variable:ProjectX.INV_ORG_LIST.ORA_EBS_OLTP_USER", "variable:ProjectX.JT_Repository_InitBlock.JT_DY_VAL2" ]
+        "expressionObjects" : [ "variable:INV_ORG_LIST.ORA_EBS_OLTP_USER", "variable:JT_Repository_InitBlock.JT_DY_VAL2" ]
       },
       "permissions" : [ {
         "accessor" : "role:AUTHENTICATED_USER",
@@ -27,7 +28,7 @@
         "accessor" : "role:AUTHENTICATED_USER",
         "filter" : {
           "expressionTemplate" : "department = %1",
-          "expressionObjects" : [ "variable:ProjectX.INV_ORG_LIST.ORA_EBS_OLTP_USER" ]
+          "expressionObjects" : [ "variable:INV_ORG_LIST.ORA_EBS_OLTP_USER" ]
         }
       } ],
       "localization" : {
@@ -40,11 +41,11 @@
       "name" : "Time",
       "description" : "this is my level based hierarchy",
       "tags" : [ "Flag" ],
-      "sourceLogicalTable" : "logicalTable:ProjectX.Core.Date",
+      "sourceLogicalTable" : "logicalTable:Core.Date",
       "alternateNames" : [ "ProjIndicatorAlias" ],
       "hideIfTrue" : {
         "expressionTemplate" : "%1 = %2",
-        "expressionObjects" : [ "variable:ProjectX.INV_ORG_LIST.ORA_EBS_OLTP_USER", "variable:ProjectX.JT_Repository_InitBlock.JT_DY_VAL2" ]
+        "expressionObjects" : [ "variable:INV_ORG_LIST.ORA_EBS_OLTP_USER", "variable:JT_Repository_InitBlock.JT_DY_VAL2" ]
       },
       "permissions" : [ {
         "accessor" : "role:AUTHENTICATED_USER",
@@ -54,7 +55,7 @@
         "accessor" : "role:AUTHENTICATED_USER",
         "filter" : {
           "expressionTemplate" : "department = %1",
-          "expressionObjects" : [ "variable:ProjectX.INV_ORG_LIST.ORA_EBS_OLTP_USER" ]
+          "expressionObjects" : [ "variable:INV_ORG_LIST.ORA_EBS_OLTP_USER" ]
         }
       } ],
       "localization" : {
@@ -66,12 +67,12 @@
         "name" : "Year",
         "description" : "this is a level",
         "tags" : [ "Flag" ],
-        "sourceLogicalLevel" : "logicalLevel:ProjectX.Core.Date.Year",
-        "displayColumns" : [ "presentationColumn:ProjectX.Sales - CRM Price WaterfallTime.Year" ],
+        "sourceLogicalLevel" : "logicalLevel:Core.Date.Year",
+        "displayColumns" : [ "presentationColumn:Sales - CRM Price WaterfallTime.Year" ],
         "alternateNames" : [ "ProjIndicatorAlias" ],
         "hideIfTrue" : {
           "expressionTemplate" : "%1 = %2",
-          "expressionObjects" : [ "variable:ProjectX.INV_ORG_LIST.ORA_EBS_OLTP_USER", "variable:ProjectX.JT_Repository_InitBlock.JT_DY_VAL2" ]
+          "expressionObjects" : [ "variable:INV_ORG_LIST.ORA_EBS_OLTP_USER", "variable:JT_Repository_InitBlock.JT_DY_VAL2" ]
         },
         "permissions" : [ {
           "accessor" : "role:AUTHENTICATED_USER",
@@ -81,7 +82,7 @@
           "accessor" : "role:AUTHENTICATED_USER",
           "filter" : {
             "expressionTemplate" : "department = %1",
-            "expressionObjects" : [ "variable:ProjectX.INV_ORG_LIST.ORA_EBS_OLTP_USER" ]
+            "expressionObjects" : [ "variable:INV_ORG_LIST.ORA_EBS_OLTP_USER" ]
           }
         } ],
         "localization" : {
@@ -92,8 +93,8 @@
       }, {
         "name" : "Quarter",
         "description" : "this is a level",
-        "sourceLogicalLevel" : "logicalLevel:ProjectX.Core.Date.Quarter",
-        "displayColumns" : [ "presentationColumn:ProjectX.Sales - CRM Price WaterfallTime.Quarter" ]
+        "sourceLogicalLevel" : "logicalLevel:Core.Date.Quarter",
+        "displayColumns" : [ "presentationColumn:Sales - CRM Price WaterfallTime.Quarter" ]
       } ]
     } ],
     "permissions" : [ {
@@ -107,13 +108,13 @@
       "accessor" : "role:AUTHENTICATED_USER",
       "filter" : {
         "expressionTemplate" : "department = %1",
-        "expressionObjects" : [ "variable:ProjectX.INV_ORG_LIST.ORA_EBS_OLTP_USER" ]
+        "expressionObjects" : [ "variable:INV_ORG_LIST.ORA_EBS_OLTP_USER" ]
       }
     }, {
       "accessor" : "user:user1",
       "filter" : {
         "expressionTemplate" : "department = %1",
-        "expressionObjects" : [ "variable:ProjectX.INV_ORG_LIST.ORA_EBS_OLTP_USER" ]
+        "expressionObjects" : [ "variable:INV_ORG_LIST.ORA_EBS_OLTP_USER" ]
       }
     } ],
     "localization" : {

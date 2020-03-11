@@ -2,10 +2,10 @@
   "physicalTable" : {
     "version" : 1.0,
     "name" : "Physical_Table_Physical_Table_Type",
-    "description" : "This is a PhysicalTable",
+    "description" : "This is a sample PhysicalTable",
     "tags" : [ "material", "usage" ],
     "sourceType" : "TABLE",
-    "columns" : [ {
+    "physicalColumns" : [ {
       "name" : "ADDRESS1",
       "description" : "Original Physical column description",
       "dataType" : "VARCHAR",
@@ -96,12 +96,12 @@
       "length" : "4",
       "nullable" : true
     } ],
-    "dynamicName" : "variable:ProjectX.InitBlocks.SQLServer70",
+    "dynamicName" : "variable:InitBlocks.SQLServer70",
     "sqlHints" : "index(ADDRESS1, ADDRESS_KEY)",
     "caching" : {
       "enable" : true,
       "expiryTime" : 5,
-      "expiryUnit" : "Hours"
+      "expiryUnit" : "HOURS"
     }
   }
 }

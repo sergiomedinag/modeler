@@ -5,7 +5,7 @@
     "description" : "This is a Session Init Block",
     "tags" : [ "material", "usage" ],
     "type" : "SESSION",
-    "connectionPool" : "connectionPool:ProjectX.Oracle Data Warehouse.Oracle Data Warehouse Repository Initblocks Connection Pool",
+    "connectionPool" : "connectionPool:Oracle Data Warehouse.Oracle Data Warehouse Repository Initblocks Connection Pool",
     "selectStatements" : [ {
       "databaseType" : "SQLServer70",
       "query" : "select max(A.MCAL_PERIOD_NAME),max(A.MCAL_QTR_NAME),max(A.MCAL_YEAR_NAME) from\n(\n  select C.MCAL_PERIOD_NAME as MCAL_PERIOD_NAME,'' as MCAL_QTR_NAME,''    as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_PERIOD_D C\n where C.adjustment_period_flg = 'N' \n and C.W_CURRENT_MCAL_PERIOD_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)\n union all\n -- Query to get previous quarter\n select '' as MCAL_PERIOD_NAME,C.MCAL_PER_NAME_QTR as MCAL_QTR_NAME,'' as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_QTR_D C\n WHERE C.W_CURRENT_MCAL_QTR_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)\n union all\n -- Query to get previous year\n select '' as MCAL_PERIOD_NAME,'' as MCAL_QTR_NAME,C.MCAL_PER_NAME_YEAR as MCAL_YEAR_NAME\n from VALUEOF(OLAPTBO).W_MCAL_YEAR_D C\n WHERE C.W_CURRENT_MCAL_YEAR_CODE = 'Previous'\n and C.MCAL_CAL_WID=valueof(NQ_SESSION.MCAL_CAL_WID_PROJ)) As A"
@@ -59,7 +59,7 @@
       "enableUsersToSetValue" : true,
       "securitySensitive" : false
     } ],
-    "dependencies" : [ "initBlock:ProjectX.Mcal Calendar Wid Identification for Project" ],
+    "dependencies" : [ "initBlock:Mcal Calendar Wid Identification for Project" ],
     "disable" : false,
     "queryReturnsVariableNamesAndValues" : false,
     "allowDeferredExecution" : false,

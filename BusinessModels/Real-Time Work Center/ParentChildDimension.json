@@ -1,0 +1,121 @@
+{
+  "logicalTable" : {
+    "version" : 1.0,
+    "name" : "ParentChildDimension",
+    "description" : "D5  Sales Rep sample  description.",
+    "tags" : [ "Oracle" ],
+    "type" : "DIMENSION",
+    "logicalColumns" : [ {
+      "name" : "Units_1",
+      "description" : "Number of distin",
+      "dataType" : "INT",
+      "sortBy" : "Units",
+      "descriptorColumn" : "Units",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:A.B.C" ]
+          }
+        }, {
+          "logicalTableSource" : "LTS2",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:A.B.C" ]
+          }
+        } ]
+      },
+      "logicalLevel" : "Product LOB",
+      "dataFilters" : [ {
+        "accessor" : "role:AUTHENTICATED_USER",
+        "filter" : {
+          "expressionTemplate" : "department = %1",
+          "expressionObjects" : [ "variable:INV_ORG_LIST.ORA_EBS_OLTP_USER" ]
+        }
+      } ]
+    }, {
+      "name" : "Units",
+      "description" : "Number of distin",
+      "dataType" : "UNKNOWN",
+      "writeable" : true,
+      "logicalColumnSource" : {
+        "derivedFrom" : "LOGICAL_COLUMNS",
+        "logicalExpression" : {
+          "expressionTemplate" : "%1 / %2",
+          "expressionObjects" : [ "logicalColumn:Sample Sales.F1 Revenue.Revenue", "logicalColumn:Sample Sales.F1 Revenue.Units" ]
+        }
+      },
+      "logicalLevel" : "DETAIL"
+    } ],
+    "logicalTableSources" : [ {
+      "name" : "LTS1 Sales Rep",
+      "description" : "LTS1 Sales Rep description",
+      "disable" : false,
+      "priority" : 1,
+      "tableMapping" : {
+        "allowUnmappedTables" : true,
+        "tables" : [ "physicalTable:biplatform_datasource.BISAMPLE.D50 Sales Rep", "physicalTable:biplatform_datasource.BISAMPLE.D51 Sales Rep Parent Child", "physicalTable:biplatform_datasource.BISAMPLE.D52 Sales Rep Position" ],
+        "logicalTableSourceJoins" : [ {
+          "leftTable" : "physicalTable:biplatform_datasource.BISAMPLE.D50 Sales Rep_D52 Sales",
+          "rightTable" : "physicalTable:biplatform_datasource.BISAMPLE.D50 Sales Rep_D52 Sales2",
+          "joinType" : "INNER",
+          "disable" : false
+        } ]
+      },
+      "dataGranularity" : [ "logicalLevel:Sample Sales.H3 Customer.Customer Detail", "logicalLevel:Sample Sales.H5 Sales Rep.Detail" ],
+      "dataFragmentation" : {
+        "expressionTemplate" : "DATE '2011-04-30' > %1",
+        "expressionObjects" : [ "logicalColumn:Sample Sales.D1 Time.Beg of Mth Wid" ]
+      },
+      "combineWithOtherFragments" : true,
+      "dataFilter" : {
+        "expressionTemplate" : "%1>10",
+        "expressionObjects" : [ "PhysicalColumn:biplatform_datasource.BISAMPLE.D50 Sales Rep.EMPLOYEE_KEY" ]
+      },
+      "distinctValues" : true
+    } ],
+    "hierarchyType" : "PARENT_CHILD",
+    "parentChildHierarchy" : {
+      "logicalLevels" : [ {
+        "name" : "Total",
+        "grandTotalLevel" : true,
+        "detailLevel" : false,
+        "chronologicalKey" : false,
+        "preferredDrillPath" : [ "Sample.H1 Time.Calendar Date" ]
+      }, {
+        "name" : "Product Brand",
+        "grandTotalLevel" : false,
+        "detailLevel" : true,
+        "primaryColumns" : [ "Brand" ],
+        "displayColumns" : "Product Brand_HEAD",
+        "chronologicalKey" : false,
+        "preferredDrillPath" : [ "Sample.H1 Time.Calendar Date" ]
+      } ],
+      "relationshipTables" : [ {
+        "logicalTableSource" : "LTS1",
+        "table" : "table1",
+        "memberKey" : "memberKey1",
+        "parentKey" : "parentKey1",
+        "distance" : "distance1",
+        "leafNodeIdentifier" : "leafNodeIdentifier1"
+      }, {
+        "logicalTableSource" : "LTS2",
+        "table" : "table2",
+        "memberKey" : "memberKey2",
+        "parentKey" : "parentKey2",
+        "distance" : "distance2",
+        "leafNodeIdentifier" : "leafNodeIdentifier2"
+      } ]   
+    },
+    "dataFilters" : [ {
+      "accessor" : "role:AUTHENTICATED_USER",
+      "filter" : {
+        "expressionTemplate" : "department = %1",
+        "expressionObjects" : [ "variable:INV_ORG_LIST.ORA_EBS_OLTP_USER" ]
+      }
+    } ]
+  }
+}

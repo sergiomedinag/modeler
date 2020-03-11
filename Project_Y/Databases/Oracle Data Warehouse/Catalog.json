@@ -1,9 +1,0 @@
-{
-  "catalog": {
-    "version": 1.0,
-    "name": "Catalog",
-    "description": "My catalog",
-    "tags": [ "tag1", "tag2" ],
-    "dynamicName": "variable:ProjectX.INV_ORG_LIST.ORA_EBS_OLTP_USER"
-  }
-}

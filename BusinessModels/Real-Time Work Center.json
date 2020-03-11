@@ -7,11 +7,11 @@
     "disable" : false,
     "joins" : [ {
       "name" : "logicalJoin1",
-      "leftTable" : "LogicalTableAName",
-      "rightTable" : "LogicalTableBName",
+      "leftTable" : "logicalTable:BusinessModels.Real-Time Work Center.ParentChildDimension",
+      "rightTable" : "logicalTable:BusinessModels.Real-Time Work Center.LookupTable",
       "type" : "LEFTOUTER",
       "cardinality" : "ONETOONE",
-      "drivingTable" : "LogicalTableAName"
+      "drivingTable" : "logicalTable:BusinessModels.Real-Time Work Center.LookupTable"
     } ]
   }
 }

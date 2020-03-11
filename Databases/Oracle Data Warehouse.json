@@ -1,0 +1,106 @@
+{
+  "database" : {
+    "version" : 1.0,
+    "name" : "Oracle Data Warehouse",
+    "description" : "This is an Oracle Data Warehouse.",
+    "tags" : [ "Oracle" ],
+    "databaseType" : 57,
+    "persistConnectionPool" : "(description=(address=(protocol=TCP)(host=slc15bni.us.oracle.com)(port=2521))(connect_data=(service_name=pdborcl.localdo...$%'.Connection Pool Z",
+    "connectionPools" : [ {
+      "name" : "Oracle Data Warehouse Connection Pool",
+      "description" : "User name is VALUEOF(OLAP_USER)\nData source name is VALUEOF(OLAP_DSN)\n\nPassword: DWH_7964",
+      "connection" : "enterprise.conn1",
+      "maxConnections" : 100,
+      "requiresFullyQualifedTableNames" : false,
+      "connectionTimeout" : 300,
+      "connectionTimeoutUnit" : "SECONDS",
+      "multithreaded" : false,
+      "supportParams" : false,
+      "isolationLevel" : "readUncommitted",
+      "runOnConnectScripts" : [ {
+        "script" : "insert into Table",
+        "disable" : "false"
+      } ],
+      "runBeforeQueryScripts" : [ {
+        "script" : "insert into Table",
+        "disable" : "false"
+      } ],
+      "runAfterQueryScripts" : [ {
+        "script" : "insert into Table",
+        "disable" : "false"
+      } ],
+      "runOnDisconnectScripts" : [ {
+        "script" : "insert into Table",
+        "disable" : "false"
+      } ],
+      "writeBackConfig" : {
+        "dbSupportsUnicode" : false,
+        "bulkInsertBufferSize" : 32768,
+        "transactionBoundary" : 10,
+        "tempTablePrefix" : "TT",
+        "tempTableOwner" : "TTOwner",
+        "tempTableDatabase" : "tempTableDatabase",
+        "tempTableSpace" : "TTSpace"
+      },
+      "permissions" : [ {
+        "accessor" : "role:AUTHENTICATED_USER",
+        "access" : "WRITE"
+      }, {
+        "accessor" : "role:roleApp1",
+        "access" : "READ"
+      } ]
+    } ],
+    "features" : [ {
+      "name" : "LEFT_OUTER_JOIN_SUPPORTED",
+      "value" : "true"
+    }, {
+      "name" : "RIGHT_OUTER_JOIN_SUPPORTED",
+      "value" : "true"
+    } ],
+    "joins" : [ {
+      "type" : "COMPLEX",
+      "name" : "S_FCSTSER_DATE_S_FCSTSER_DATE QAgo",
+      "leftTable" : "physicalTable:DB1.cat1.schema1.PT1",
+      "rightTable" : "physicalTable:DB1.cat1.schema1.PT2",
+      "complexJoinCondition" : {
+        "expressionTemplate" : "case ( %1 > %2) else ..(%3)",
+        "expressionObjects" : [ "PhysicalColumn:DB1.cat1.schema1.PT1.col1", "PhysicalColumn:DB1.cat1.schema1.PT2.col2" ]
+      },
+      "cardinality" : "ONETOMANY",
+      "hint" : "hint"
+    }, {
+      "type" : "SIMPLE",
+      "name" : "Fact_Agg_IA_INV_BALANCE_A1_FKey",
+      "leftTable" : "physicalTable:DB1.cat1.schema1.PT1",
+      "rightTable" : "physicalTable:DB1.cat1.schema1.PT2",
+      "joinConditions" : [ {
+        "leftColumn" : "physicalColumn:DB1.cat1.schema1.PT1.COL1",
+        "rightColumn" : "physicalColumn:DB1.cat1.schema1.PT2.COL1"
+      }, {
+        "leftColumn" : "physicalColumn:DB1.cat1.schema1.PT1.COL2",
+        "rightColumn" : "physicalColumn:DB1.cat1.schema1.PT2.COL2"
+      } ],
+      "hint" : "hint1"
+    } ],
+    "queryLimits" : [ {
+      "accessor" : "role:RoleA",
+      "maxRowSetting" : "INHERIT",
+      "maxRrows" : 1000,
+      "maxTimeSetting" : "maxTimesetting",
+      "maxTime" : 25,
+      "logicalQueryMaxTime" : 10,
+      "directDatabaseRequests" : "ENABLE",
+      "restrictions" : [ {
+        "type" : "ALLOW",
+        "day" : "SUNDAY",
+        "from" : "10",
+        "to" : "12"
+      }, {
+        "type" : "DENY",
+        "day" : "SUNDAY",
+        "from" : "15",
+        "to" : "16"
+      } ]
+    } ]
+  }
+}
