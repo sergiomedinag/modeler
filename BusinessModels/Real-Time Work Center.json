@@ -8,10 +8,10 @@
     "joins" : [ {
       "name" : "logicalJoin1",
       "leftTable" : "logicalTable:BusinessModels.Real-Time Work Center.ParentChildDimension",
-      "rightTable" : "logicalTable:BusinessModels.Real-Time Work Center.LookupTable",
+      "rightTable" : "logicalTable:BusinessModels.Real-Time Work Center.TimeDimension",
       "type" : "LEFTOUTER",
       "cardinality" : "ONETOONE",
-      "drivingTable" : "logicalTable:BusinessModels.Real-Time Work Center.LookupTable"
+      "drivingTable" : "logicalTable:BusinessModels.Real-Time Work Center.TimeDimension"
     } ]
   }
 }
